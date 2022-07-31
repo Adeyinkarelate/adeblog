@@ -1,0 +1,37 @@
+{% extends 'partials/base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %} SingUP Page {% endblock %}
+{% block main %}
+
+<style>
+    .cover {
+        width: 100%;
+        height: 100vh;
+        background-image:url('{% static "/image/back.jpg" %}');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 50px 20px;
+    }
+</style>
+
+<div class="cover">
+<div class="container">
+    <div class="row mt-5 pt-3">
+        <div class="col-sm-12 col-md-5 offset-md-6 ">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h4 class="card-header my-2">Sing Up</h4>
+                    <form action="" method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <input class="btn btn-primary btn-block" type="submit" value="Sing Up">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock %}
